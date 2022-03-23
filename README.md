@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Softwrap skill test [development]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple table app developed for a skill test.
 
 ## Available Scripts
 
