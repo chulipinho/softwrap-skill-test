@@ -1,4 +1,5 @@
 import React from "react";
+import { EditRow } from "./EditRow";
 import { ReadOnlyRow } from "./ReadOnlyRow";
 
 const tableBackgroundColor = 'bg-white';
@@ -25,7 +26,7 @@ export const TableComponent = ({ fields, data }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {data.map(e => <ReadOnlyRow entry={e} bgColor={tableBackgroundColor} />)}
+                                    {data.map(e => <EditRow entry={e} bgColor={tableBackgroundColor} />)}
                                 </tbody>
                             </table>
                         </div>
