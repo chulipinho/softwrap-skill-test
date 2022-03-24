@@ -78,5 +78,84 @@
         "cpf": "61-895-2206",
         "city": "Areeiro",
         "state": "Portalegre"
+    },{
+        "name": "Gabey",
+        "age": 51,
+        "maritalStatus": "Solteiro",
+        "cpf": "50-597-6193",
+        "city": "Mobile",
+        "state": "Alabama"
+    },
+    {
+        "name": "Jamesy",
+        "age": 36,
+        "maritalStatus": "Solteiro",
+        "cpf": "18-240-7992",
+        "city": "Birmingham",
+        "state": "Alabama"
+    },
+    {
+        "name": "Konstantin",
+        "age": 31,
+        "maritalStatus": "Casado",
+        "cpf": "46-863-9735",
+        "city": "Anniston",
+        "state": "Alabama"
+    },
+    {
+        "name": "Alexandra",
+        "age": 53,
+        "maritalStatus": "Casado",
+        "cpf": "85-490-2162",
+        "city": "Silvares",
+        "state": "Castelo Branco"
+    },
+    {
+        "name": "Ninon",
+        "age": 71,
+        "maritalStatus": "Casado",
+        "cpf": "64-962-3885",
+        "city": "Vaiamonte",
+        "state": "Portalegre"
+    },
+    {
+        "name": "Bartholomeus",
+        "age": 55,
+        "maritalStatus": "Casado",
+        "cpf": "84-889-9165",
+        "city": "Castelo de Vide",
+        "state": "Portalegre"
+    },
+    {
+        "name": "Rogerio",
+        "age": 73,
+        "maritalStatus": "Solteiro",
+        "cpf": "24-562-9412",
+        "city": "Anniston",
+        "state": "Alabama"
+    },
+    {
+        "name": "Wolf",
+        "age": 37,
+        "maritalStatus": "Casado",
+        "cpf": "61-003-5686",
+        "city": "Alcains",
+        "state": "Castelo Branco"
+    },
+    {
+        "name": "Pearla",
+        "age": 37,
+        "maritalStatus": "Casado",
+        "cpf": "25-145-1652",
+        "city": "Saint Paul",
+        "state": "Minnesota"
+    },
+    {
+        "name": "Pat",
+        "age": 78,
+        "maritalStatus": "Solteiro",
+        "cpf": "61-895-2206",
+        "city": "Areeiro",
+        "state": "Portalegre"
     }
 ]
