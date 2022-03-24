@@ -3,6 +3,9 @@ import { ButtonComponent } from "../../ButtonComponent";
 import { TiTick } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
 
+
+// todo: implement validation
+
 export const EditRow = ({ entry, bgColor }) => {
 
     return (
