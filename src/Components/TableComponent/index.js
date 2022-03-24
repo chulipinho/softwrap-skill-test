@@ -2,7 +2,7 @@ import React from "react";
 
 const TableHeading = ({ children }) => {
     return (
-        <th>{children}</th>
+        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">{children}</th>
     )
 }
 
@@ -10,22 +10,36 @@ const TableRow = ({ entry }) => {
 
     return (
         <tr>
-            {Object.entries(entry).map(e => <td>{e[1]}</td>)}
+            {Object.entries(entry).map(e => <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <p className="text-gray-900 whitespace-no-wrap">
+                    {e[1]}
+                </p>
+            </td>)}
         </tr>
     )
 }
 
 export const TableComponent = ({ fields, data }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    {fields.map(e => <TableHeading>{e}</TableHeading>)}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map(e => <TableRow entry={e} />)}
-            </tbody>
-        </table>
+        <div className="container mx-auto px-4 sm:px-8 max-w-3xl">
+            <div className="py-8">
+                <div className="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+                    <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                        <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                            <table className="min-w-full leading-normal">
+                                <thead>
+                                    <tr>
+                                        {fields.map(e => <TableHeading>{e}</TableHeading>)}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {data.map(e => <TableRow entry={e} />)}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
