@@ -1,8 +1,11 @@
-import './App.css';
+import { TableComponent } from './Components/TableComponent';
+
+const tableFieldsMock = ['Nome', 'Idade', 'Estado Civil', 'CPF', 'Cidade', 'Estado'];
+const mockData = require("./Utils/mock.json");
 
 function App() {
   return (
-    <div/>
+    <TableComponent fields={tableFieldsMock} data={mockData}/>
   );
 }
 
