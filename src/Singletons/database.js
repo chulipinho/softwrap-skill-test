@@ -9,6 +9,10 @@ class DatabaseClass {
         this.mainPath = 'users';
     }
 
+    get usersPath() {
+        return ref(this.database, this.mainPath);
+    }
+
     createEntry(entry) {
         push(ref(this.database, this.mainPath), entry);
         return entry;
