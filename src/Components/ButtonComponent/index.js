@@ -5,15 +5,15 @@ export const ButtonComponent = ({children, color}) => {
     const colors = {
         'red': {
             mainColor: 'bg-red-600',
-            hoverColor: 'bg-red-700'
+            hoverColor: 'hover:bg-red-700'
         },
         'green': {
             mainColor: 'bg-green-600',
-            hoverColor: 'bg-green-700'
+            hoverColor: 'hover:bg-green-700'
         },
         'blue': {
             mainColor: 'bg-blue-600',
-            hoverColor: 'bg-blue-700'
+            hoverColor: 'hover:bg-blue-700'
         }
     }
 
