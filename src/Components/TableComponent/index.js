@@ -1,16 +1,10 @@
-import React from "react";
-import { EditRow } from "./EditRow";
-import { ReadOnlyRow } from "./ReadOnlyRow";
+import { TableHeading } from "./TableHeading";
+import { TableRow } from "./TableRow";
 
 const tableBackgroundColor = 'bg-white';
 
-const TableHeading = ({ children }) => {
-    return (
-        <th scope="col" className={`px-5 py-3 ${tableBackgroundColor} border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold`}>{children}</th>
-    )
-}
-
 export const TableComponent = ({ fields, data }) => {
+
     return (
         <div className="container mx-auto px-4 sm:px-8 max-w-4xl">
             <div className="py-8">
@@ -20,13 +14,13 @@ export const TableComponent = ({ fields, data }) => {
                             <table className="min-w-full leading-normal">
                                 <thead>
                                     <tr>
-                                        {fields.map(e => <TableHeading>{e}</TableHeading>)}
+                                        {fields.map((e, index) => <TableHeading key={index} bgColor={tableBackgroundColor}>{e}</TableHeading>)}
                                         <th scope="col" className={`px-5 py-3 ${tableBackgroundColor}  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal`} />
-                                        <th scope="col" className={`px-5 py-3 ${tableBackgroundColor}  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal`} />                                
+                                        <th scope="col" className={`px-5 py-3 ${tableBackgroundColor}  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal`} />
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {data.map(e => <EditRow entry={e} bgColor={tableBackgroundColor} />)}
+                                    {data.map(e => <TableRow key={e[0]} entry={e[1]} bgColor={tableBackgroundColor} />)}
                                 </tbody>
                             </table>
                         </div>
