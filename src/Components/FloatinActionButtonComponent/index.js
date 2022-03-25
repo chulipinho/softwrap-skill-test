@@ -21,7 +21,7 @@ function FloatingActionButtonComponent({ children, color }) {
     const hoverColor = colors[color].hoverColor;
 
     return (
-        <button type="button" class={`fixed bottom-12 right-12 py-4 px-4  ${mainColor} ${hoverColor} text-white transition ease-in duration-200 text-center text-base w-14 h-14 font-semibold shadow-md rounded-full`}>
+        <button type="button" className={`fixed bottom-12 right-12 py-4 px-4  ${mainColor} ${hoverColor} text-white transition ease-in duration-200 text-center text-base w-14 h-14 font-semibold shadow-md rounded-full`}>
             {children}
         </button>
     )
