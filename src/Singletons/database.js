@@ -1,6 +1,5 @@
 import firebaseApp from "../Utils/firebase";
 import { getDatabase, ref, push, get, child, remove, update } from "firebase/database";
-import useUsers from "../Hooks/useUsers";
 
 
 class DatabaseClass {
@@ -24,11 +23,11 @@ class DatabaseClass {
         return entries;
     }
     deleteEntry(key) {
-        let itemPath = `users/${key}`;
+        let itemPath = `${this.mainPath}/${key}`;
         remove(ref(this.database, itemPath));
     }
     updateEntry(key, updates) {
-        let itemPath = `users/${key}`;
+        let itemPath = `${this.mainPath}/${key}`;
         update(ref(this.database, itemPath), updates);
     }
 
