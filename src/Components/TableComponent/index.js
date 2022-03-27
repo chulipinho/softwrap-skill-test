@@ -1,8 +1,9 @@
+import { AppColors } from "../../Assets/Styles/AppColors";
 import { TableHeading } from "./TableHeading";
 import { TableNavigation } from "./TableNavigation";
 import { TableRow } from "./TableRow";
 
-const tableBackgroundColor = 'bg-white';
+const tableBackgroundColor = AppColors["table-background"];
 
 export const TableComponent = ({ fields, data }) => {
 
@@ -21,7 +22,12 @@ export const TableComponent = ({ fields, data }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {data.map(e => <TableRow key={e[0]} entry={e[1]} bgColor={tableBackgroundColor} />)}
+                                    {data.map(e => <TableRow
+                                        key={e[0]}
+                                        userId={e[0]}
+                                        entry={e[1]}
+                                        bgColor={tableBackgroundColor}
+                                    />)}
                                 </tbody>
                             </table>
                             <TableNavigation />

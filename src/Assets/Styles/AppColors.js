@@ -18,5 +18,6 @@ export const AppColors = {
     'navigatorButton': {
         mainColor: 'bg-white',
         hoverColor: 'hover:bg-gray-100'
-    }
+    },
+    'table-background': 'bg-white'
 }
