@@ -1,4 +1,5 @@
 import { TableHeading } from "./TableHeading";
+import { TableNavigation } from "./TableNavigation";
 import { TableRow } from "./TableRow";
 
 const tableBackgroundColor = 'bg-white';
@@ -23,6 +24,7 @@ export const TableComponent = ({ fields, data }) => {
                                     {data.map(e => <TableRow key={e[0]} entry={e[1]} bgColor={tableBackgroundColor} />)}
                                 </tbody>
                             </table>
+                            <TableNavigation />
                         </div>
                     </div>
                 </div>
