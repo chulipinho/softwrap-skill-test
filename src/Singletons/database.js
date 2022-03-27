@@ -1,5 +1,6 @@
 import firebaseApp from "../Utils/firebase";
 import { getDatabase, ref, push, get, child, remove, update } from "firebase/database";
+import useUsers from "../Hooks/useUsers";
 
 
 class DatabaseClass {
@@ -17,8 +18,8 @@ class DatabaseClass {
         push(ref(this.database, this.mainPath), entry);
         return entry;
     }
-    readEntries() {
-        let entries = get(child(this.dbRef, this.mainPath)).then(snapshot => snapshot.val());
+    async readEntries() {
+        let entries = await get(child(this.dbRef, this.mainPath)).then(snapshot => snapshot.val());
 
         return entries;
     }
