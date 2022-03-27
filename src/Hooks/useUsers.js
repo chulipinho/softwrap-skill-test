@@ -9,7 +9,6 @@ export default function useUsers() {
     useEffect(() => {
         onValue(database.usersPath, snapshot => {
             setUsers(snapshot.val());
-            console.log(snapshot.val())
         })
     }, [database]);
 
