@@ -7,6 +7,8 @@ import useCurrentPage from '../../Hooks/useCurrentPage';
 import useRecordsPerPage from '../../Hooks/useRecordsPerPage';
 import useNumberOfPages from '../../Hooks/useNumberOfPages';
 import {CircularLoading} from '../../Components/CircularLoadingComponent'
+import { OverlayForm } from '../../Components/OverlayForm';
+
 
 
 function MainPage() {
@@ -29,7 +31,8 @@ function MainPage() {
                 return <TableComponent fields={tableFieldsMock} data={displayedData} />
             })()}
 
-            <FloatingActionButtonComponent color='blue'><IoMdAdd size={25} /></FloatingActionButtonComponent>
+            <FloatingActionButtonComponent color='blue' targetId='addNewEntry'><IoMdAdd size={25} /></FloatingActionButtonComponent>
+            <OverlayForm id='addNewEntry' title='Adicionar um novo usuário' />
         </div>
     )
 }
