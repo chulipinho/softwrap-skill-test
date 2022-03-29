@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
-export const TextField = ({ name, label, maxLength }) => {
+export const TextField = ({ name, label }) => {
     const inputRef = useRef(null);
     const { fieldName, registerField, error } = useField(name);
 
@@ -20,7 +20,7 @@ export const TextField = ({ name, label, maxLength }) => {
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 {label}
             </label>
-            <input ref={inputRef} className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${borderColor} rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white`} type="text" maxLength={maxLength}/>
+            <input ref={inputRef} className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${borderColor} rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white`} type="text" maxLength='25'/>
             <p className="text-red-500 text-xs italic mb-3">{error}</p>
         </div>
     )
