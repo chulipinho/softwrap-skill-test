@@ -2,18 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 import { cpfMask } from '../../../Utils/Masks/cpfMask';
 
-export const CpfField = ({ name }) => {
-    const [value, setValue] = useState('');
+export const CpfField = ({ name, value, handleChange }) => {
 
     const inputRef = useRef(null);
     const { fieldName, registerField, error } = useField(name);
 
     const borderColor = error ? 'border-red-500' : 'border-gray-700';
 
-    function handleChange(event) {
-        const newValue = cpfMask(event.target.value);
-        setValue(newValue);
-    }
 
     useEffect(() => {
         registerField({
@@ -22,7 +17,6 @@ export const CpfField = ({ name }) => {
             path: 'value'
         });
 
-        setValue(inputRef.current.value);
     }, [fieldName, registerField]);
 
     return (
