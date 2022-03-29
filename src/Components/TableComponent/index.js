@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppColors } from "../../Assets/Styles/AppColors";
+import { ResultsPerPageSelector } from './ResultsPerPageSelector';
 import { TableHeading } from "./TableHeading";
 import { TableNavigation } from "./TableNavigation";
 import { TableRow } from "./TableRow";
@@ -17,8 +18,9 @@ export const TableComponent = ({ fields, data }) => {
                                 <thead>
                                     <tr>
                                         {fields.map((e, index) => <TableHeading key={index} bgColor={tableBackgroundColor}>{e}</TableHeading>)}
-                                        <th scope="col" className={`px-5 py-3 ${tableBackgroundColor}  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal`} />
-                                        <th scope="col" className={`px-5 py-3 ${tableBackgroundColor}  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal`} />
+                                        <th scope="col" colSpan='2' className={`px-5 py-3 ${tableBackgroundColor}  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal`}>
+                                            <ResultsPerPageSelector />
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
