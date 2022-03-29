@@ -12,7 +12,7 @@ export const TableRow = ({ entry, bgColor, userId }) => {
     const dataConfig = formConfig;
     const database = Database.getInstance();
 
-    const [edit, setEdit] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
     const [currentUser, setUser] = useState(entry);
 
     function handleChange(event) {
@@ -42,24 +42,24 @@ export const TableRow = ({ entry, bgColor, userId }) => {
             {dataConfig.map((e, index) => {
                 const data = currentUser[e.name];
 
-                return edit
+                return isEdit
                     ? <EditField selectValues={e.selectValues} name={e.name} key={index} initialValue={data} handleChange={handleChange} />
                     : <ReadOnlyField bgColor={bgColor} key={index}>{data}</ReadOnlyField>
             })}
 
             <td className={`px-5 py-5 border-b border-gray-200 ${bgColor} text-sm`}>
                 {(() => {
-                    return !edit ?
+                    return !isEdit ?
                         (<ButtonComponent
                             color='blue'
-                            onClick={() => setEdit(true)}>
+                            onClick={() => setIsEdit(true)}>
                             <AiOutlineEdit />
                         </ButtonComponent>) :
                         (<ButtonComponent
                             color='green'
                             type='submit'
                             onClick={() => {
-                                setEdit(false);
+                                setIsEdit(false);
                                 submitData();
                             }}>
                             <TiTick />
@@ -70,6 +70,13 @@ export const TableRow = ({ entry, bgColor, userId }) => {
             <td className={`px-5 py-5 border-b border-gray-200 ${bgColor} text-sm`}>
                 <ButtonComponent
                     onClick={() => {
+                        if (isEdit) {
+                            if (window.confirm('Deseja cancelar a operação de edição?')) {
+                                setIsEdit(false);
+                                setUser(entry);
+                            }
+                            return;
+                        }
                         deleteUser();
                     }}
                     color='red'>
