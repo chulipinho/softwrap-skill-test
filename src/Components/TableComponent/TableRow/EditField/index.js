@@ -1,13 +1,33 @@
 import React from 'react';
+import { UnwrappedCpfField, UnwrappedSelectField, UnwrappedTextField } from './UnwrappedField';
 
-export const EditField = ({ name, bgColor }) => {
-  return (
-    <td className={`px-5 py-5 border-b border-gray-200 ${bgColor} text-sm`}>
-    <input 
-        type='text' 
-        required='required'
+export const EditField = ({ name, selectValues, userId, initialValue, handleChange }) => {
+
+  if (name === 'cpf') {
+    return (
+      <UnwrappedCpfField
         name={name}
-    ></input>
-</td>
-  )
+        initialValue={initialValue}
+      />
+    )
+  }
+  if (name === 'maritalStatus') {
+    return (
+      <UnwrappedSelectField
+        name={name}
+        options={selectValues}
+        initialValue={initialValue}
+        handleChange={handleChange}
+      />
+    )
+  }
+
+  return (
+    <UnwrappedTextField
+      userId={userId}
+      name={name}
+      initialValue={initialValue}
+      handleChange={handleChange}
+    />
+  );
 }

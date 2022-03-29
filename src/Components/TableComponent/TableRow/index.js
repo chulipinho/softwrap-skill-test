@@ -5,21 +5,39 @@ import { IoClose } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { ReadOnlyField } from "./ReadOnlyField";
 import { EditField } from "./EditField";
-import Database from "../../../Singletons/database"
+import Database from "../../../Singletons/database";
+import { formConfig } from '../../../Config/formConfig';
 
 export const TableRow = ({ entry, bgColor, userId }) => {
-    const [edit, setEdit] = useState(false);
-    const orderedKeys = ["name", "age", "maritalStatus", "cpf", "city", "state"];
+    const dataConfig = formConfig;
     const database = Database.getInstance();
+
+    const [edit, setEdit] = useState(false);
+    const [currentUser, setUser] = useState(entry);
+
+    function handleChange(event) {
+        setUser(() => {
+            const key = event.target.name;
+            const value = event.target.value
+            const newUser = { ...currentUser };
+
+            newUser[key] = value;
+            return newUser;
+        })
+    }
+
+    function submitData() {
+        database.updateEntry(userId, currentUser);
+    }
 
     return (
         <tr>
-            {orderedKeys.map((e) => {
-                const data = entry[e];
+            {dataConfig.map((e, index) => {
+                const data = currentUser[e.name];
 
                 return edit
-                    ? <EditField bgColor={bgColor} key={e}>{data}</EditField>
-                    : <ReadOnlyField bgColor={bgColor} key={e}>{data}</ReadOnlyField>
+                    ? <EditField selectValues={e.selectValues} name={e.name} key={index} initialValue={data} handleChange={handleChange} />
+                    : <ReadOnlyField bgColor={bgColor} key={index}>{data}</ReadOnlyField>
             })}
 
             <td className={`px-5 py-5 border-b border-gray-200 ${bgColor} text-sm`}>
@@ -32,7 +50,11 @@ export const TableRow = ({ entry, bgColor, userId }) => {
                         </ButtonComponent>) :
                         (<ButtonComponent
                             color='green'
-                            onClick={() => setEdit(false)}>
+                            type='submit'
+                            onClick={() => {
+                                setEdit(false);
+                                submitData();
+                            }}>
                             <TiTick />
                         </ButtonComponent>)
                 })()}

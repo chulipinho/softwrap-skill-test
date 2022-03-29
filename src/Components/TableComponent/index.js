@@ -1,11 +1,11 @@
+import React from 'react';
 import { AppColors } from "../../Assets/Styles/AppColors";
 import { TableHeading } from "./TableHeading";
 import { TableNavigation } from "./TableNavigation";
 import { TableRow } from "./TableRow";
 
-const tableBackgroundColor = AppColors["table-background"];
-
 export const TableComponent = ({ fields, data }) => {
+    const tableBackgroundColor = AppColors["table-background"];
 
     return (
         <div className="container mx-auto px-4 sm:px-8 max-w-4xl">
