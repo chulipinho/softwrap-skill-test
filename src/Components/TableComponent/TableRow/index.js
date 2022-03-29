@@ -31,6 +31,12 @@ export const TableRow = ({ entry, bgColor, userId }) => {
         alert("Dados atualizados com sucesso!");
     }
 
+    function deleteUser() {
+        if (window.confirm(`Você realmente deseja excluir o usuário ${entry.name}?\nEsta operação não pode ser desfeita.`)) {
+            database.deleteEntry(userId);
+        }
+    }
+
     return (
         <tr>
             {dataConfig.map((e, index) => {
@@ -64,7 +70,7 @@ export const TableRow = ({ entry, bgColor, userId }) => {
             <td className={`px-5 py-5 border-b border-gray-200 ${bgColor} text-sm`}>
                 <ButtonComponent
                     onClick={() => {
-                        database.deleteEntry(userId);
+                        deleteUser();
                     }}
                     color='red'>
                     <IoClose size={150} />
