@@ -4,7 +4,9 @@ import { useField } from '@unform/core'
 export const SelectField = ({ label, options, name }) => {
 
     const inputRef = useRef(null);
-    const { fieldName, registerField } = useField(name);
+    const { fieldName, registerField, error } = useField(name);
+
+    const borderColor = error ? 'border-red-500' : 'border-gray-700';
 
     useEffect(() => {
         registerField({
@@ -19,9 +21,10 @@ export const SelectField = ({ label, options, name }) => {
         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
             {label}
         </label>
-        <select ref={inputRef} className={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-700 rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white`}>
+        <select ref={inputRef} className={`appearance-none block w-full bg-gray-200 text-gray-700 border ${borderColor} rounded py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white`}>
             {options.map((e, index) => <option key={index}>{e}</option>)}
         </select>
+        <p className="text-red-500 text-xs italic mb-3">{error}</p>
     </div>
     )
 }
