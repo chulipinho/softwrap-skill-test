@@ -14,7 +14,7 @@ import { OverlayForm } from '../../Components/OverlayForm';
 function MainPage() {
     const tableFieldsMock = ["Nome", "Idade", "Estado Civil", "CPF", "Cidade", "Estado"];
 
-    const { recordsPerPage, changeRecordsPerPage } = useRecordsPerPage();
+    const { recordsPerPage } = useRecordsPerPage();
     const users = useUsers();
     const currentPage = useCurrentPage().currentPage;
     const { numberOfPages, buildRecords } = usePagination(users, recordsPerPage);
