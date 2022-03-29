@@ -28,6 +28,7 @@ export const TableRow = ({ entry, bgColor, userId }) => {
 
     function submitData() {
         database.updateEntry(userId, currentUser);
+        alert("Dados atualizados com sucesso!");
     }
 
     return (
