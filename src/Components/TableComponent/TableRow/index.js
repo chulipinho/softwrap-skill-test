@@ -8,6 +8,7 @@ import { EditField } from "./EditField";
 import Database from "../../../Singletons/database";
 import { formConfig } from '../../../Config/formConfig';
 import * as Yup from 'yup';
+import { cpfMask } from '../../../Utils/Masks/cpfMask'
 
 export const TableRow = ({ entry, bgColor, userId }) => {
     const dataConfig = formConfig;
@@ -24,6 +25,8 @@ export const TableRow = ({ entry, bgColor, userId }) => {
             const newUser = { ...currentUser };
 
             newUser[key] = value;
+            newUser['cpf'] = cpfMask(newUser['cpf']);
+
             return newUser;
         })
     }

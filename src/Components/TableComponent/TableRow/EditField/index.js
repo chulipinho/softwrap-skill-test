@@ -12,6 +12,7 @@ export const EditField = ({ name, selectValues, userId, initialValue, handleChan
             error={error}
             name={name}
             initialValue={initialValue}
+            handleChange={handleChange}
           />
         )
       }
