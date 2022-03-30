@@ -22,7 +22,7 @@ ______________________________
   
   - [Outras funcionalidades](#outras-funcionalidades)
 
-- [Frameworks utilizados](#frameworks-utilizados)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 - [Desenvolvido por](#desenvolvido-por)
 
@@ -32,6 +32,15 @@ ______________________________
 
 Aplicação web desenvolvida em [React](https://pt-br.reactjs.org/) com Realtime Database do [Firebase](https://firebase.google.com/?hl=pt). Possui um CRUD com registro de pessoas. A interface é simples e intuitiva e permite que todas as ações sejam executadas. Todos os componentes foram implementados utilizando o framework do [Tailwind](https://tailwindcss.com/) e componentes das bibliotecas [TailwindUI](https://tailwindui.com/) e [TailwindComponents](https://tailwindcomponents.com/). Os icones vêm da biblioteca [React Icons](https://react-icons.github.io/react-icons/).
 
+As entradas da tabela possuem os seguintes atributos:
+
+- Nome
+- Idade
+- Estado civil
+- CPF
+- Cidade
+- Estado
+
 A página está hospedada através do serviço de hosting do Firebase e pode ser acessada por [aqui](https://softwrap-skill-test.web.app/).
 
 _________
@@ -40,7 +49,7 @@ _________
 
 ### Adicionando uma entrada
 
-Para adicionar uma entrada na tabela, basta clicar no botão flutuante no canto inferior direito da tela. Para melhorar a experiencia do usuário optou-se por um modal com um formulário que aparecerá com os campos necessários para a adição de uma nova entrada. O modal foi também uma opção com o objetivo de não aumentar o nível de complexidade da aplicação de forma desnecessária, mantendo a lógica de uma *single page application*.Os campos são validados quando o usuário envia os dados utilizando as bibliotecas do [Unform](https://unform-rocketseat.vercel.app/quick-start) e do [Yup](https://www.npmjs.com/package/yup). Para o CPF utiliza-se uma máscara implementada em [RegEx](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions).
+Para adicionar uma entrada na tabela, basta clicar no botão flutuante no canto inferior direito da tela. Para melhorar a experiencia do usuário optou-se por um modal com um formulário que aparecerá com os campos necessários para a adição de uma nova entrada. O modal foi também uma opção com o objetivo de não aumentar o nível de complexidade da aplicação de forma desnecessária, mantendo a lógica de uma *single page application*. Os campos são validados quando o usuário envia os dados utilizando as bibliotecas do [Unform](https://unform-rocketseat.vercel.app/quick-start) e do [Yup](https://www.npmjs.com/package/yup). Para o CPF utiliza-se uma máscara implementada em [RegEx](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions).
 
 ### Excluindo uma entrada
 
@@ -49,8 +58,8 @@ Cada uma das linhas da tabela possui um botão de exclusão e um botão de ediç
 Para que a remoção de items seja executada, utiliza-se a chave da entrada gerada automaticamente pelo Firebase quando um novo dado é adicionado na tabela. Cada uma das linhas da tabela recebe essa chave como parâmetro, então o botão de exclusão pode facilmente acessar a entrada a ser removida.
 
 ### Editando uma entrada
-
- A edição utiliza as lógicas de exclusão e adição combinadas. Para atualizar um dado no Firebase, utiliza-se a mesma chave utilizada na exclusão, juntamente à um objeto contendo os novos dados da entrada. Para gerar o novo objeto, emprega-se a mesma lógica do formulário, mas, desta vez, sem a implementação do [Unform](https://unform-rocketseat.vercel.app/quick-start). A implementação de formulários em tabelas possui uma funcionalidade diferente e, para preservar a chave do usuário, foi necessária a implementação de uma nova lógica para tratar as edições.
+ 
+Para atualizar um dado no Firebase, identifica-se a entrada a ser alterada pelo identificador citado anteriormente. Essa entrada é sobreescrita com os novos valores inseridos pelo usuário. Para permitir as alterações, foi implementado um formulário nas linhas da tabela, sem a utilização do [Unform](https://unform-rocketseat.vercel.app/quick-start).
 
 Ao clicar no botão de edição, os campos da tabela se tornarão campos editáveis, já preenchidos com os dados da entrada selecionada. 
 
@@ -64,21 +73,21 @@ O banco de dados é instanciado através de um singleton e possui tem todas suas
 
 ___________________
 
-## Frameworks utilizados
+## Tecnologias utilizadas
 
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-- [React](https://pt-br.reactjs.org/)
+- [React](https://pt-br.reactjs.org/) v17.0.2
 
-- [Redux](https://redux.js.org/)
+- [Redux](https://redux.js.org/) v4.1.2
 
-- [Unform](https://unform-rocketseat.vercel.app/quick-start)
+- [Unform](https://unform-rocketseat.vercel.app/quick-start) v2.1.6
 
-- [Yup](https://www.npmjs.com/package/yup)
+- [Yup](https://www.npmjs.com/package/yup) v0.32.11
 
-- [Tailwind](https://tailwindcss.com/)
+- [Tailwind](https://tailwindcss.com/) v3.0.23
 
-- [Firebase](https://firebase.google.com/?hl=pt)
+- [Firebase](https://firebase.google.com/?hl=pt) v9.6.9
 
 __________________________
 
