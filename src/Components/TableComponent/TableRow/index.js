@@ -73,7 +73,6 @@ export const TableRow = ({ entry, bgColor, userId }) => {
         <tr>
             {dataConfig.map((e, index) => {
                 const data = currentUser[e.name];
-                console.log(errors)
 
                 return isEdit
                     ? <EditField selectValues={e.selectValues} error={errors[e.name]} name={e.name} key={index} initialValue={data} handleChange={handleChange} />

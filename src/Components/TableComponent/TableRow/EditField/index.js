@@ -2,7 +2,6 @@ import React from 'react';
 import { UnwrappedCpfField, UnwrappedSelectField, UnwrappedTextField } from './UnwrappedField';
 
 export const EditField = ({ name, selectValues, userId, initialValue, handleChange, error }) => {
-  console.log(error);
 
   return (<td className={`px-3 py-5 border-b border-gray-200 text-sm`}>
     {(() => {
